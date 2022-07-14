@@ -1,6 +1,5 @@
 package com.example;
 
-import io.netty.handler.logging.LogLevel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +11,6 @@ import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.HttpProtocol;
 import reactor.netty.http.client.HttpClient;
-import reactor.netty.transport.logging.AdvancedByteBufFormat;
 
 @Slf4j
 @SpringBootApplication
@@ -30,7 +28,6 @@ public class Http2Client {
                         new ReactorClientHttpConnector(
                                 HttpClient.create()
                                         .protocol(HttpProtocol.H2C)
-                                        .wiretap("wiretap-logger", LogLevel.INFO, AdvancedByteBufFormat.HEX_DUMP)
                         )
                 )
                 .build();
