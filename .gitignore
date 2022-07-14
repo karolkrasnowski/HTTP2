@@ -1,2 +1,9 @@
 .idea/*
 .gradle
+*.class
+*.bin
+client/build
+server/build
+client/out
+server/out
+build
